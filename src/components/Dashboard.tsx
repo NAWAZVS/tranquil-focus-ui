@@ -3,14 +3,14 @@ import WelcomeSection from "./WelcomeSection";
 import TodayScheduleCard from "./TodayScheduleCard";
 import QuickAddButton from "./QuickAddButton";
 import DashboardSummary from "./DashboardSummary";
-import mountainBg from "@/assets/mountain-night-bg.jpg";
+import sunsetBg from "@/assets/sunset-pavilion-bg.webp";
 
 const Dashboard = () => {
   return (
     <div 
       className="min-h-screen bg-background relative overflow-hidden"
       style={{
-        backgroundImage: `url(${mountainBg})`,
+        backgroundImage: `url(${sunsetBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
