@@ -47,16 +47,38 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // Nature-inspired extended palette
+        nature: {
+          forest: "hsl(var(--forest-green))",
+          ocean: "hsl(var(--ocean-blue))",
+          sunset: "hsl(var(--sunset-orange))",
+          mountain: "hsl(var(--mountain-purple))",
+          earth: "hsl(var(--earth-brown))",
         },
+        glass: {
+          bg: "hsl(var(--glass-bg))",
+          border: "hsl(var(--glass-border))",
+        },
+      },
+      fontFamily: {
+        heading: "var(--font-heading)",
+        body: "var(--font-body)",
+        sans: "var(--font-body)",
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-overlay': 'var(--gradient-overlay)', 
+        'gradient-glass': 'var(--gradient-glass)',
+      },
+      boxShadow: {
+        'glass': 'var(--shadow-glass)',
+        'elevated': 'var(--shadow-elevated)',
+        'glow-soft': 'var(--glow-soft)',
+        'glow-strong': 'var(--glow-strong)',
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
       },
       borderRadius: {
         lg: "var(--radius)",
