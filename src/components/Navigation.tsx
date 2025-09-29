@@ -1,16 +1,23 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+  const location = useLocation();
   
   const navItems = [
-    { name: "Home", href: "#" },
-    { name: "To-Do", href: "#" },
-    { name: "Finances", href: "#" },
-    { name: "Schedule", href: "#" },
-    { name: "Diary", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "To-Do", href: "/todo" },
+    { name: "Finances", href: "/finances" },
+    { name: "Schedule", href: "/schedule" },
+    { name: "Diary", href: "/diary" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/" && location.pathname === "/") return true;
+    if (href !== "/" && location.pathname.startsWith(href)) return true;
+    return false;
+  };
 
   return (
     <nav className="glass-strong rounded-2xl mx-6 mt-6 px-8 py-4 relative z-10">
@@ -24,25 +31,25 @@ const Navigation = () => {
         
         <div className="flex items-center space-x-8">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.name}
-              onClick={() => setActiveTab(item.name)}
+              to={item.href}
               className={`
                 font-body font-medium text-sm transition-all duration-300 relative
-                ${activeTab === item.name 
+                ${isActive(item.href) 
                   ? "text-primary" 
                   : "text-muted-foreground hover:text-foreground"
                 }
                 after:content-[''] after:absolute after:w-full after:h-0.5 
                 after:bottom-[-4px] after:left-0 after:transition-all after:duration-300
-                ${activeTab === item.name 
+                ${isActive(item.href) 
                   ? "after:bg-primary after:scale-x-100" 
                   : "after:bg-primary after:scale-x-0 hover:after:scale-x-100"
                 }
               `}
             >
               {item.name}
-            </button>
+            </Link>
           ))}
         </div>
         
