@@ -10,33 +10,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { format } from "date-fns";
 import Layout from "@/components/Layout";
 
-interface Task {
-  id: string;
-  title: string;
-  description: string;
-  category: "Personal" | "Work" | "Study";
-  priority: "Low" | "Medium" | "High";
-  dueDate?: Date;
-  completed: boolean;
-  createdAt: Date;
-}
-
 const Todo = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [filter, setFilter] = useState<"All" | "Completed" | "Pending">("All");
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("All");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
-    category: "Personal" as const,
-    priority: "Medium" as const,
-    dueDate: undefined as Date | undefined,
+    category: "Personal",
+    priority: "Medium",
+    dueDate: undefined,
   });
 
   const handleAddTask = () => {
     if (!newTask.title.trim()) return;
 
-    const task: Task = {
+    const task = {
       id: Date.now().toString(),
       title: newTask.title,
       description: newTask.description,
@@ -58,13 +47,13 @@ const Todo = () => {
     setIsDialogOpen(false);
   };
 
-  const handleToggleComplete = (id: string) => {
+  const handleToggleComplete = (id) => {
     setTasks(prev => prev.map(task => 
       task.id === id ? { ...task, completed: !task.completed } : task
     ));
   };
 
-  const handleDeleteTask = (id: string) => {
+  const handleDeleteTask = (id) => {
     setTasks(prev => prev.filter(task => task.id !== id));
   };
 
@@ -74,7 +63,7 @@ const Todo = () => {
     return true;
   });
 
-  const getPriorityColor = (priority: string) => {
+  const getPriorityColor = (priority) => {
     switch (priority) {
       case "High": return "text-red-400 bg-red-400/10";
       case "Medium": return "text-nature-sunset bg-nature-sunset/10";
@@ -83,7 +72,7 @@ const Todo = () => {
     }
   };
 
-  const getCategoryColor = (category: string) => {
+  const getCategoryColor = (category) => {
     switch (category) {
       case "Work": return "text-nature-ocean bg-nature-ocean/10";
       case "Study": return "text-nature-mountain bg-nature-mountain/10";
@@ -110,7 +99,7 @@ const Todo = () => {
           <div className="glass rounded-2xl p-6 mb-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex gap-2">
-                {(["All", "Pending", "Completed"] as const).map((filterOption) => (
+                {["All", "Pending", "Completed"].map((filterOption) => (
                   <Button
                     key={filterOption}
                     onClick={() => setFilter(filterOption)}
@@ -150,7 +139,7 @@ const Todo = () => {
                     <div className="grid grid-cols-2 gap-4">
                       <Select
                         value={newTask.category}
-                        onValueChange={(value) => setNewTask(prev => ({ ...prev, category: value as any }))}
+                        onValueChange={(value) => setNewTask(prev => ({ ...prev, category: value }))}
                       >
                         <SelectTrigger className="bg-background/10 border-border/30">
                           <SelectValue />
@@ -163,7 +152,7 @@ const Todo = () => {
                       </Select>
                       <Select
                         value={newTask.priority}
-                        onValueChange={(value) => setNewTask(prev => ({ ...prev, priority: value as any }))}
+                        onValueChange={(value) => setNewTask(prev => ({ ...prev, priority: value }))}
                       >
                         <SelectTrigger className="bg-background/10 border-border/30">
                           <SelectValue />

@@ -1,11 +1,7 @@
 import Navigation from "@/components/Navigation";
 import sunsetBg from "@/assets/sunset-pavilion-bg.webp";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }) => {
   return (
     <div 
       className="min-h-screen bg-background relative overflow-hidden"

@@ -9,25 +9,12 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import Layout from "@/components/Layout";
 
-interface DiaryEntry {
-  id: string;
-  title: string;
-  content: string;
-  date: Date;
-  isFavorite: boolean;
-  mood?: "happy" | "neutral" | "sad" | "excited" | "stressed";
-}
-
 const Diary = () => {
-  const [entries, setEntries] = useState<DiaryEntry[]>([]);
+  const [entries, setEntries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingEntry, setEditingEntry] = useState<DiaryEntry | null>(null);
-  const [newEntry, setNewEntry] = useState<{
-    title: string;
-    content: string;
-    mood: DiaryEntry["mood"];
-  }>({
+  const [editingEntry, setEditingEntry] = useState(null);
+  const [newEntry, setNewEntry] = useState({
     title: "",
     content: "",
     mood: "neutral",
@@ -36,7 +23,7 @@ const Diary = () => {
   const handleAddEntry = () => {
     if (!newEntry.title.trim() || !newEntry.content.trim()) return;
 
-    const entry: DiaryEntry = {
+    const entry = {
       id: Date.now().toString(),
       title: newEntry.title,
       content: newEntry.content,
@@ -71,17 +58,17 @@ const Diary = () => {
     setIsDialogOpen(false);
   };
 
-  const handleDeleteEntry = (id: string) => {
+  const handleDeleteEntry = (id) => {
     setEntries(prev => prev.filter(e => e.id !== id));
   };
 
-  const handleToggleFavorite = (id: string) => {
+  const handleToggleFavorite = (id) => {
     setEntries(prev => prev.map(entry => 
       entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry
     ));
   };
 
-  const openEditDialog = (entry: DiaryEntry) => {
+  const openEditDialog = (entry) => {
     setEditingEntry(entry);
     setNewEntry({
       title: entry.title,
@@ -108,7 +95,7 @@ const Diary = () => {
     )
     .sort((a, b) => b.date.getTime() - a.date.getTime());
 
-  const getMoodEmoji = (mood?: string) => {
+  const getMoodEmoji = (mood) => {
     switch (mood) {
       case "happy": return "😊";
       case "excited": return "🎉";
@@ -118,7 +105,7 @@ const Diary = () => {
     }
   };
 
-  const getMoodColor = (mood?: string) => {
+  const getMoodColor = (mood) => {
     switch (mood) {
       case "happy": return "text-nature-forest bg-nature-forest/10";
       case "excited": return "text-nature-sunset bg-nature-sunset/10";
@@ -193,7 +180,7 @@ const Diary = () => {
                         ].map(({ mood, emoji, label }) => (
                           <Button
                             key={mood}
-                            onClick={() => setNewEntry(prev => ({ ...prev, mood: mood as any }))}
+                            onClick={() => setNewEntry(prev => ({ ...prev, mood }))}
                             variant={newEntry.mood === mood ? "default" : "outline"}
                             size="sm"
                           >
