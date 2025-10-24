@@ -13,7 +13,7 @@ const Navigation = () => {
     { name: "Diary", href: "/diary" },
   ];
 
-  const isActive = (href: string) => {
+  const isActive = (href) => {
     if (href === "/" && location.pathname === "/") return true;
     if (href !== "/" && location.pathname.startsWith(href)) return true;
     return false;

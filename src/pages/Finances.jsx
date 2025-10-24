@@ -9,20 +9,11 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import Layout from "@/components/Layout";
 
-interface Transaction {
-  id: string;
-  type: "income" | "expense";
-  amount: number;
-  category: string;
-  description: string;
-  date: Date;
-}
-
 const Finances = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [newTransaction, setNewTransaction] = useState({
-    type: "expense" as "income" | "expense",
+    type: "expense",
     amount: "",
     category: "",
     description: "",
@@ -34,7 +25,7 @@ const Finances = () => {
   const handleAddTransaction = () => {
     if (!newTransaction.amount || !newTransaction.category) return;
 
-    const transaction: Transaction = {
+    const transaction = {
       id: Date.now().toString(),
       type: newTransaction.type,
       amount: parseFloat(newTransaction.amount),
@@ -53,7 +44,7 @@ const Finances = () => {
     setIsDialogOpen(false);
   };
 
-  const handleDeleteTransaction = (id: string) => {
+  const handleDeleteTransaction = (id) => {
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
 
@@ -67,10 +58,10 @@ const Finances = () => {
 
   const balance = totalIncome - totalExpenses;
 
-  const getCategoryColor = (category: string, type: string) => {
+  const getCategoryColor = (category, type) => {
     if (type === "income") return "text-nature-forest bg-nature-forest/10";
     
-    const colorMap: { [key: string]: string } = {
+    const colorMap = {
       "Food": "text-nature-sunset bg-nature-sunset/10",
       "Travel": "text-nature-ocean bg-nature-ocean/10",
       "Subscriptions": "text-nature-mountain bg-nature-mountain/10",
