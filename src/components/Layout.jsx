@@ -1,11 +1,15 @@
 import Navigation from "@/components/Navigation";
+import sunsetBg from "@/assets/sunset-pavilion-bg.webp";
 
 const Layout = ({ children }) => {
   return (
     <div 
       className="min-h-screen bg-background relative overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, hsl(220 25% 8%), hsl(260 45% 15%))',
+        backgroundImage: `url(${sunsetBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
       }}
     >
       {/* Gradient overlay for readability */}
