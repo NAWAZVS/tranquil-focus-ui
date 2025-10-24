@@ -9,10 +9,19 @@ import { Badge } from "@/components/ui/badge";
 import { format, startOfWeek, addDays, isSameDay, isToday } from "date-fns";
 import Layout from "@/components/Layout";
 
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  date: Date;
+  time: string;
+  duration: number; // in minutes
+}
+
 const Schedule = () => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [view, setView] = useState("week");
+  const [view, setView] = useState<"week" | "day">("week");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [newEvent, setNewEvent] = useState({
     title: "",
@@ -28,7 +37,7 @@ const Schedule = () => {
     const eventDate = new Date(selectedDate);
     eventDate.setHours(hours, minutes, 0, 0);
 
-    const event = {
+    const event: Event = {
       id: Date.now().toString(),
       title: newEvent.title,
       description: newEvent.description,
@@ -47,7 +56,7 @@ const Schedule = () => {
     setIsDialogOpen(false);
   };
 
-  const handleDeleteEvent = (id) => {
+  const handleDeleteEvent = (id: string) => {
     setEvents(prev => prev.filter(e => e.id !== id));
   };
 
@@ -56,7 +65,7 @@ const Schedule = () => {
     return Array.from({ length: 7 }, (_, i) => addDays(start, i));
   };
 
-  const getEventsForDate = (date) => {
+  const getEventsForDate = (date: Date) => {
     return events
       .filter(event => isSameDay(event.date, date))
       .sort((a, b) => a.time.localeCompare(b.time));

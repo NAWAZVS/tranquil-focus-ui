@@ -10,13 +10,15 @@ const Dashboard = () => {
       <WelcomeSection />
       {/* Main content area */}
       <div className="px-6 mt-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Schedule card */}
-            <TodayScheduleCard />
+            <div className="flex justify-center lg:justify-start">
+              <TodayScheduleCard />
+            </div>
             
             {/* Additional content area for future modules */}
-            <div>
+            <div className="space-y-6">
               {/* Placeholder for future cards */}
               <div className="glass rounded-2xl p-6 hover-lift">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">

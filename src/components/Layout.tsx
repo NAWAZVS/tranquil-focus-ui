@@ -1,7 +1,11 @@
 import Navigation from "@/components/Navigation";
 import sunsetBg from "@/assets/sunset-pavilion-bg.webp";
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div 
       className="min-h-screen bg-background relative overflow-hidden"
@@ -13,7 +17,7 @@ const Layout = ({ children }) => {
       }}
     >
       {/* Gradient overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/50 to-background/80" />
+      <div className="absolute inset-0 bg-gradient-overlay" />
       
       <div className="relative z-10">
         <Navigation />

@@ -33,7 +33,7 @@ const TodayScheduleCard = () => {
     }
   ];
 
-  const getPriorityDot = (priority, color) => {
+  const getPriorityDot = (priority: string, color: string) => {
     const colorMap = {
       "nature-forest": "text-nature-forest",
       "nature-ocean": "text-nature-ocean", 
@@ -41,7 +41,7 @@ const TodayScheduleCard = () => {
       "nature-mountain": "text-nature-mountain"
     };
     
-    return colorMap[color] || "text-muted-foreground";
+    return colorMap[color as keyof typeof colorMap] || "text-muted-foreground";
   };
 
   return (
