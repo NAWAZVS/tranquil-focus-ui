@@ -26,7 +26,7 @@ const Dashboard = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="font-body text-sm text-muted-foreground">
+                    <span className="font-body text-sm text-foreground/70">
                       Productivity Score
                     </span>
                     <span className="font-heading font-semibold text-nature-forest">
@@ -34,7 +34,7 @@ const Dashboard = () => {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-body text-sm text-muted-foreground">
+                    <span className="font-body text-sm text-foreground/70">
                       Weekly Goal
                     </span>
                     <span className="font-heading font-semibold text-nature-ocean">
@@ -42,7 +42,7 @@ const Dashboard = () => {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-body text-sm text-muted-foreground">
+                    <span className="font-body text-sm text-foreground/70">
                       Streak
                     </span>
                     <span className="font-heading font-semibold text-nature-sunset">

@@ -38,7 +38,7 @@ const Navigation = () => {
                 font-body font-medium text-sm transition-all duration-300 relative
                 ${isActive(item.href) 
                   ? "text-primary" 
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-foreground/80 hover:text-foreground"
                 }
                 after:content-[''] after:absolute after:w-full after:h-0.5 
                 after:bottom-[-4px] after:left-0 after:transition-all after:duration-300

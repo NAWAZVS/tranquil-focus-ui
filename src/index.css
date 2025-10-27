@@ -96,11 +96,11 @@
   }
   
   .glass-strong {
-    background: hsl(var(--glass-bg) / 0.3);
-    border: 1px solid hsl(var(--glass-border) / 0.3);
+    background: hsl(var(--glass-bg) / 0.5);
+    border: 1px solid hsl(var(--glass-border) / 0.35);
     box-shadow: var(--shadow-glass);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
   }
   
   /* Glow effects */
