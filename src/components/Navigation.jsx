@@ -29,13 +29,13 @@ const Navigation = () => {
           <span className="font-heading font-semibold text-lg text-foreground">Mindful</span>
         </div>
         
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.href}
               className={`
-                font-body font-medium text-sm transition-all duration-300 relative
+                font-body font-medium text-sm transition-all duration-300 relative whitespace-nowrap
                 ${isActive(item.href) 
                   ? "text-primary" 
                   : "text-foreground/80 hover:text-foreground"
