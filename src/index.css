@@ -88,16 +88,16 @@
 
   /* Glass morphism utility classes */
   .glass {
-    background: var(--gradient-glass);
-    border: 1px solid hsl(var(--glass-border) / 0.2);
+    background: hsl(var(--glass-bg) / 0.4);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
     box-shadow: var(--shadow-glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
   
   .glass-strong {
-    background: hsl(var(--glass-bg) / 0.5);
-    border: 1px solid hsl(var(--glass-border) / 0.35);
+    background: hsl(var(--glass-bg) / 0.7);
+    border: 1px solid hsl(var(--glass-border) / 0.4);
     box-shadow: var(--shadow-glass);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);

@@ -54,7 +54,7 @@ const TodayScheduleCard = () => {
           <h3 className="font-heading font-semibold text-lg text-foreground">
             Today's Schedule
           </h3>
-          <p className="font-body text-sm text-muted-foreground">
+          <p className="font-body text-sm text-foreground/60">
             {new Date().toLocaleDateString('en-US', { 
               weekday: 'long', 
               month: 'long', 
@@ -68,8 +68,8 @@ const TodayScheduleCard = () => {
         {tasks.map((task) => (
           <div key={task.id} className="flex items-center gap-4 group">
             <div className="flex items-center gap-2 min-w-20">
-              <Clock className="w-4 h-4 text-muted-foreground" />
-              <span className="font-body text-sm text-muted-foreground">
+              <Clock className="w-4 h-4 text-foreground/50" />
+              <span className="font-body text-sm text-foreground/60">
                 {task.time}
               </span>
             </div>
