@@ -23,7 +23,7 @@ const Navigation = () => {
     <nav className="glass-strong rounded-2xl mx-6 mt-6 px-6 py-4 relative z-10">
       <div className="flex items-center justify-between gap-8">
         <div className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-lg">
+          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-lg">
             <span className="text-background font-heading font-bold text-sm">M</span>
           </div>
           <span className="font-heading font-semibold text-lg text-foreground">Mindful</span>
