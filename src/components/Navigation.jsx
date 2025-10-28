@@ -20,32 +20,32 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="glass-strong rounded-2xl mx-6 mt-6 px-8 py-4 relative z-10">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+    <nav className="glass-strong rounded-2xl mx-6 mt-6 px-6 py-4 relative z-10">
+      <div className="flex items-center justify-between gap-8">
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-lg">
             <span className="text-background font-heading font-bold text-sm">M</span>
           </div>
           <span className="font-heading font-semibold text-lg text-foreground">Mindful</span>
         </div>
         
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8 flex-1 justify-center">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.href}
               className={`
                 font-body font-medium text-sm transition-all duration-300 relative
-                px-1
+                whitespace-nowrap
                 ${isActive(item.href) 
                   ? "text-primary" 
-                  : "text-foreground hover:text-primary/80"
+                  : "text-foreground/90 hover:text-primary"
                 }
                 after:content-[''] after:absolute after:w-full after:h-0.5 
-                after:bottom-[-4px] after:left-0 after:transition-all after:duration-300
+                after:bottom-[-6px] after:left-0 after:transition-all after:duration-300
                 ${isActive(item.href) 
                   ? "after:bg-primary after:scale-x-100" 
-                  : "after:bg-primary after:scale-x-0 hover:after:scale-x-100"
+                  : "after:bg-primary/50 after:scale-x-0 hover:after:scale-x-100"
                 }
               `}
             >
